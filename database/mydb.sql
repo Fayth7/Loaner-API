@@ -273,7 +273,7 @@ CREATE TABLE `users` (
   `email` varchar(255) DEFAULT NULL,
   `father_name` varchar(200) NOT NULL,
   `likee` varchar(200) NOT NULL,
-  `pass` varchar(20) NOT NULL,
+  `pass` varchar(255) NOT NULL,
   `time` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
