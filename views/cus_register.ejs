@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,83 +8,83 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!------ Include the above in your HEAD tag ---------->
+    <!-- Include the above in your HEAD tag -->
     <link rel="stylesheet" href="/css/register.css">
     <script src="/js/register.js"></script>
 </head>
+
 <body>
-    
 
+    <form action="/cus_register" method="POST" enctype="multipart/form-data">
+        <h4 style="text-align: center; color:#17A2B8;" class="p-4">Customer Registration Form</h4>
 
-<!-- <h4 style="text-align: center; color:#17A2B8;" class="p-4 bg-white">Customer Registration Form</h4> -->
-<!-- <div class="container"> -->
+        <label>
+            <p class="label-txt">ENTER CUSTOMER NAME</p>
+            <input type="text" id="name" name="name" class="input">
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
 
+        <label>
+            <p class="label-txt">ENTER CUSTOMER CONTACT</p>
+            <input type="text" id="contact" name="contact" class="input">
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
 
-<form action="/cus_register" method="POST" enctype="multipart/form-data">
-    <h4 style="text-align: center; color:#17A2B8;" class="p-4">Customer Registration Form</h4>
+        <label>
+            <p class="label-txt">ENTER CUSTOMER FULL ADDRESS</p>
+            <input type="text" name="address" id="address" value="" class="input">
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
 
-    <label>
-        <p class="label-txt">ENTER CUSTOMER NAME</p>
-        <input type="text" id="name" name="name" class="input">
-        <div class="line-box">
-            <div class="line"></div>
+        <label>
+            <p class="label-txt">ENTER CUSTOMER SECURITY</p>
+            <input type="text" name="asset" id="asset" class="input">
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
+
+        <label>
+            <p class="label-txt">SECURITY PRICE</p>
+            <input type="text" name="p_asset" id="p_asset" class="input">
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
+
+        <label>
+            <p class="label-txt">SELECT DATE</p>
+            <input type="date" name="date" class="input">
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
+
+        <div class="form-group">
+            <h5 class="text-info" style="color: #C5E1A5;">Select Loan Type & Image</h6>
+                <select name="type" class="form-control" id="type" required>
+                    <option readonly value="">Select Loan-Type</option>
+                    <% print.forEach(function (user) { %>
+                        <option value="<%= user.type_id %>"><%= user.name %></option>
+                    <% }) %>
+                </select>
         </div>
-    </label>
-    <label>
-        <p class="label-txt">ENTER CUSTOMER CONTACT</p>
-        <input type="text" id="contact" name="contact" class="input">
-        <div class="line-box">
-            <div class="line"></div>
-        </div>
-    </label>
 
-    <label>
-        <p class="label-txt">ENTER CUSTOMER EMAIL ADDRESS</p>
-        <input type="text" name="address" id="address" value=""class="input">
-        <div class="line-box">
-            <div class="line"></div>
-        </div>
-    </label>
-    <label>
-        <p class="label-txt">ENTER CUSTOMER SECURITY</p>
-        <input type="text" name="asset" id="asset" class="input">
-        <div class="line-box">
-            <div class="line"></div>
-        </div>
-    </label>
-    <label>
-        <p class="label-txt">SECURITY PRICE</p>
-        <input type="text" name="p_asset" id="p_asset" class="input">
-        <div class="line-box">
-            <div class="line"></div>
-        </div>
-    </label>
-    <div class="form-group">
-        <h5 class="text-info" style ="color: #C5E1A5;">Select Scheme & Image</h6>
-        <select name="scheme" class="form-control" id="scheme" required>
-            <option readonly value="">Select Loan-Type</option>
-
-            <% print.forEach(function (user) { %>
-
-
-            <option value="<%= user.scheme_id %>"><%= user.name%></option>
-            <option hidden id="r_asset" value="<%= user.r_asset %>"></option>
-
-            <% }) %>
-
-        </select>
-    </div>
-        <div class="form-group" >
+        <div class="form-group">
             <div class="col-sm-9">
-                
-                 <input  class="form-control" type="file" id="img" name="img" required>
+                <input class="form-control" type="file" id="img" name="img" required>
             </div>
         </div>
-        
-    </div>
-        <button type="submit">submit</button>
-</form>
-<!-- </div> -->
+
+        <button type="submit">Submit</button>
+    </form>
+
 </body>
 
 </html>

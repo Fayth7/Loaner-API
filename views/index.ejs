@@ -33,12 +33,98 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/header.css" />
+
+    <style>
+      body {
+        background-color: #dee2ff;
+      }
+
+      .navbar {
+        background-color: #008baa;
+      }
+
+      .navbar-brand {
+        color: #feeafa !important;
+        font-weight: bold;
+      }
+
+      .navbar-brand img {
+        width: 30px; /* Adjust the width as needed */
+        height: 30px; /* Adjust the height as needed */
+        margin-right: 10px; /* Add margin for spacing */
+      }
+
+      .navbar-brand:hover {
+        color: #feeafa !important;
+      }
+
+      .navbar-dark .navbar-toggler-icon {
+        background-color: #feeafa;
+      }
+
+      .nav-link {
+        color: #feeafa !important;
+      }
+
+      .nav-link:hover {
+        color: #feeafa !important;
+      }
+
+      .container {
+        background-color: #efd3d7;
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 20px;
+      }
+
+      .card {
+        margin-bottom: 20px;
+      }
+
+      .card-title {
+        color: #008baa;
+      }
+
+      .card-body {
+        background-color: #cbc0d3;
+        border-radius: 10px;
+      }
+
+      .btn-success {
+        background-color: #008baa;
+        border: none;
+      }
+
+      .btn-success:hover {
+        background-color: #00516c;
+      }
+
+      .btn-info {
+        background-color: #008baa;
+        border: none;
+      }
+
+      .btn-info:hover {
+        background-color: #00516c;
+      }
+
+      .btn-primary {
+        background-color: #008baa;
+        border: none;
+      }
+
+      .btn-primary:hover {
+        background-color: #00516c;
+      }
+    </style>
   </head>
 
   <body>
     <!-- Navigation bar -->
     <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand text-info" href="#">LOANER</a>
+      <a class="navbar-brand text-info" href="#">
+        <img src="path_to_your_logo" alt="Logo" /> BULLIJJO CREDIT LIMITED
+      </a>
       <button
         class="navbar-toggler"
         type="button"
@@ -61,9 +147,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/view_scheme">
+            <a class="nav-link" href="/view_type">
               <i class="fa fa-envelope-o"></i>
-              Schemes
+              Loan Types
             </a>
           </li>
           <li class="nav-item">
@@ -83,9 +169,9 @@
           <li class="nav-item">
             <a class="nav-link" href="/today">
               <i class="fa fa-bell text-success">
-                <%if(print[0]){%>
+                <% if(print[0]) { %>
                 <span class="badge badge-danger"><%=print[0].t%></span>
-                <%}%>
+                <% } %>
               </i>
               Today
             </a>
@@ -120,13 +206,13 @@
         <div class="col-sm-6 col-lg-4 text-center">
           <div class="card bg-dark text-white">
             <div class="card-body">
-              <h5 class="card-title">Add Schemes here</h5>
+              <h5 class="card-title">Add Loan Types here</h5>
               <p class="card-text">
                 With supporting text below as a natural lead-in to additional
                 content.
               </p>
-              <a href="/scheme" class="btn btn-success">Add Scheme</a>
-              <a href="/view_scheme" class="btn btn-primary">View Scheme</a>
+              <a href="/type" class="btn btn-success">Add Loan Type</a>
+              <a href="/view_type" class="btn btn-primary">View type</a>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 This app is built with nodeJs express framework and sql database. In the forntend i have used html css and bootstrap. 
 
 This app can help keep record of customer who has taken loan. Admin can give loan by registering a customer with his information.
-Admin can add schemes to the system.
+Admin can add Loan Type to the system.
 
 Customer info:
  

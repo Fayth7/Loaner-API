@@ -24,7 +24,7 @@
 </head>
 <body>
     <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand text-info" href="#">Itsourcecode Loan System</a>
+        <a class="navbar-brand text-info" href="#">BULIJJO CREDIT LIMITED</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -40,11 +40,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/view_scheme">
+                    <a class="nav-link" href="/view_type">
                         <i class="fa fa-envelope-o">
                             <!-- <span class="badge badge-danger">11</span> -->
                         </i>
-                        Schemes
+                        Loan Types
                     </a>
                 </li>
                 <li class="nav-item">
@@ -101,16 +101,16 @@
             <tr>
                 <td><%= user.install_no%></td>
 
-                <td><%= user.cus_id %></td>
+                <td><%= user.customer_id %></td>
     
-                <td><%= user.cus_name %></td>
+                <td><%= user.customer_name  %></td>
     
                 <td><%= user.Time %></td>
                 <td>
-                    <a href="/installment2/<%=user.cus_id %>" class="btn btn-primary" <% var id  = user.cus_id %></a>Pay</a>
+                    <a href="/installment2/<%=user.customer_id %>" class="btn btn-primary" <% var id  = user.customer_id %></a>Pay</a>
                 </td>
                 <td>
-                    <a href="/invoice/<%=user.cus_id %>" class="btn btn-success">Invoice</a>
+                    <a href="/invoice/<%=user.customer_id %>" class="btn btn-success">Invoice</a>
     
                 </td>
     

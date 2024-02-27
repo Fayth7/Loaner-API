@@ -28,14 +28,14 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `customer` (
-  `cus_id` int(11) NOT NULL,
-  `scheme_id` int(11) NOT NULL,
-  `scheme_name` varchar(200) NOT NULL,
-  `scheme_amount` float NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `type_id` int(11) NOT NULL,
+  `type_name` varchar(200) NOT NULL,
+  `type_amount` float NOT NULL,
   `installment_amount` float NOT NULL,
-  `cus_name` varchar(255) NOT NULL,
-  `cus_contact` varchar(255) NOT NULL,
-  `cus_address` varchar(255) NOT NULL,
+  `customer_name ` varchar(255) NOT NULL,
+  `customer_contact` varchar(255) NOT NULL,
+  `customer_address` varchar(255) NOT NULL,
   `cus_asset` varchar(255) NOT NULL,
   `asset_price` float NOT NULL,
   `img` varchar(200) NOT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE `customer` (
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`cus_id`, `scheme_id`, `scheme_name`, `scheme_amount`, `installment_amount`, `cus_name`, `cus_contact`, `cus_address`, `cus_asset`, `asset_price`, `img`, `date`) VALUES
+INSERT INTO `customer` (`customer_id`, `type_id`, `type_name`, `type_amount`, `installment_amount`, `customer_name `, `customer_contact`, `customer_address`, `cus_asset`, `asset_price`, `img`, `date`) VALUES
 (1, 1, 'Home Loan', 300000, 25000, 'Jude Suares', '09123456789', 'jude@gmail.com', '50000', 50000, 'download.jpg', '2022-04-19'),
 (2, 2, 'Phone Loan', 20000, 3333, 'Princely Cezar', '09120118823', 'Brgy.San Pedro, Binalbagan', '100000', 5000, 'images.png', '2022-04-19');
 
@@ -58,7 +58,7 @@ INSERT INTO `customer` (`cus_id`, `scheme_id`, `scheme_name`, `scheme_amount`, `
 
 CREATE TABLE `installment` (
   `install_id` int(11) NOT NULL,
-  `cus_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
   `amount` float NOT NULL,
   `remaining` float NOT NULL,
   `status` varchar(11) NOT NULL,
@@ -70,7 +70,7 @@ CREATE TABLE `installment` (
 -- Dumping data for table `installment`
 --
 
-INSERT INTO `installment` (`install_id`, `cus_id`, `amount`, `remaining`, `status`, `fine`, `ins_date`) VALUES
+INSERT INTO `installment` (`install_id`, `customer_id`, `amount`, `remaining`, `status`, `fine`, `ins_date`) VALUES
 (1, 1, 25000, 275000, 'Late', 50, '2020-05-12'),
 (2, 3, 25000, 275000, 'Late', 50, '2020-05-15'),
 (3, 2, 25000, 275000, 'On Time', 0, '2020-05-08'),
@@ -101,9 +101,9 @@ INSERT INTO `installment` (`install_id`, `cus_id`, `amount`, `remaining`, `statu
 --
 
 CREATE TABLE `loan_info` (
-  `scheme_id` int(11) NOT NULL,
-  `cus_id` int(11) NOT NULL,
-  `scheme_amount` float NOT NULL,
+  `type_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `type_amount` float NOT NULL,
   `remaining_amount` float NOT NULL,
   `installment_no` int(11) NOT NULL,
   `installment_remaining` int(11) NOT NULL,
@@ -115,7 +115,7 @@ CREATE TABLE `loan_info` (
 -- Dumping data for table `loan_info`
 --
 
-INSERT INTO `loan_info` (`scheme_id`, `cus_id`, `scheme_amount`, `remaining_amount`, `installment_no`, `installment_remaining`, `installment_amount`, `date`) VALUES
+INSERT INTO `loan_info` (`type_id`, `customer_id`, `type_amount`, `remaining_amount`, `installment_no`, `installment_remaining`, `installment_amount`, `date`) VALUES
 (1, 1, 300000, 275000, 12, 11, 25000, '2020-04-09'),
 (1, 2, 300000, 125000, 12, 5, 25000, '2020-04-09'),
 (1, 3, 300000, 100000, 12, 4, 25000, '2020-04-09'),
@@ -129,121 +129,36 @@ INSERT INTO `loan_info` (`scheme_id`, `cus_id`, `scheme_amount`, `remaining_amou
 -- --------------------------------------------------------
 
 --
--- Table structure for table `schedule`
+-- Table structure for table `customer_registration`
 --
 
-CREATE TABLE `schedule` (
-  `install_no` int(11) NOT NULL,
-  `cus_id` int(11) NOT NULL,
-  `cus_name` varchar(200) NOT NULL,
-  `Time` varchar(255) NOT NULL,
-  `status` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE customer_registration (
+    customer_id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_name VARCHAR(255) NOT NULL,
+    customer_contact VARCHAR(20) NULL,
+    customer_address VARCHAR(255) NULL,
+    loan_type VARCHAR(255) NULL,
+    date DATE NULL,
+    image_path VARCHAR(255) NULL
+);
+
 
 --
 -- Dumping data for table `schedule`
 --
 
-INSERT INTO `schedule` (`install_no`, `cus_id`, `cus_name`, `Time`, `status`) VALUES
+INSERT INTO `schedule` (`install_no`, `customer_id`, `customer_name `, `Time`, `status`) VALUES
 (1, 1, 'Nishad', '2020-05-09', 'paid'),
-(2, 1, 'Nishad', '2020-06-08', 'paid'),
-(3, 1, 'Nishad', '2020-07-08', ''),
-(4, 1, 'Nishad', '2020-08-07', ''),
-(5, 1, 'Nishad', '2020-09-06', ''),
-(6, 1, 'Nishad', '2020-10-06', ''),
-(7, 1, 'Nishad', '2020-11-05', ''),
-(8, 1, 'Nishad', '2020-12-05', ''),
-(9, 1, 'Nishad', '2021-01-04', ''),
-(10, 1, 'Nishad', '2021-02-03', ''),
-(11, 1, 'Nishad', '2021-03-05', ''),
-(12, 1, 'Nishad', '2021-04-04', ''),
-(1, 2, 'Habib', '2020-05-09', 'paid'),
-(2, 2, 'Habib', '2020-06-08', 'paid'),
-(3, 2, 'Habib', '2020-07-08', 'paid'),
-(4, 2, 'Habib', '2020-08-07', 'paid'),
-(5, 2, 'Habib', '2020-09-06', 'unpaid'),
-(6, 2, 'Habib', '2020-10-06', 'paid'),
-(7, 2, 'Habib', '2020-11-05', 'paid'),
-(8, 2, 'Habib', '2020-12-05', 'unpaid'),
-(9, 2, 'Habib', '2021-01-04', 'unpaid'),
-(10, 2, 'Habib', '2021-02-03', 'unpaid'),
-(11, 2, 'Habib', '2021-03-05', 'unpaid'),
-(12, 2, 'Habib', '2021-04-04', 'unpaid'),
-(1, 3, 'TOma', '2020-05-09', 'paid'),
-(2, 3, 'TOma', '2020-06-08', 'unpaid'),
-(3, 3, 'TOma', '2020-07-08', 'paid'),
-(4, 3, 'TOma', '2020-08-07', 'paid'),
-(5, 3, 'TOma', '2020-09-06', 'paid'),
-(6, 3, 'TOma', '2020-10-06', 'paid'),
-(7, 3, 'TOma', '2020-11-05', 'paid'),
-(8, 3, 'TOma', '2020-12-05', 'paid'),
-(9, 3, 'TOma', '2021-01-04', 'unpaid'),
-(10, 3, 'TOma', '2021-02-03', 'unpaid'),
-(11, 3, 'TOma', '2021-03-05', 'unpaid'),
-(12, 3, 'TOma', '2021-04-04', 'unpaid'),
-(1, 4, 'Rajon', '2020-04-16', 'paid'),
-(2, 4, 'Rajon', '2020-04-23', 'unpaid'),
-(3, 4, 'Rajon', '2020-04-30', 'unpaid'),
-(4, 4, 'Rajon', '2020-05-07', 'unpaid'),
-(5, 4, 'Rajon', '2020-05-14', 'unpaid'),
-(6, 4, 'Rajon', '2020-05-21', 'unpaid'),
-(1, 5, 'test ', '2020-04-11', 'unpaid'),
-(2, 5, 'test ', '2020-04-12', 'unpaid'),
-(3, 5, 'test ', '2020-04-13', 'unpaid'),
-(4, 5, 'test ', '2020-04-14', 'unpaid'),
-(5, 5, 'test ', '2020-04-15', 'unpaid'),
-(6, 5, 'test ', '2020-04-16', 'unpaid'),
-(7, 5, 'test ', '2020-04-17', 'unpaid'),
-(8, 5, 'test ', '2020-04-18', 'unpaid'),
-(9, 5, 'test ', '2020-04-19', 'unpaid'),
-(10, 5, 'test ', '2020-04-20', 'unpaid'),
-(11, 5, 'test ', '2020-04-21', 'unpaid'),
-(12, 5, 'test ', '2020-04-22', 'unpaid'),
-(1, 6, 'test ', '2020-04-10', 'paid'),
-(2, 6, 'test ', '2020-04-10', 'paid'),
-(3, 6, 'test ', '2020-04-10', 'paid'),
-(4, 6, 'test ', '2020-04-10', 'paid'),
-(5, 6, 'test ', '2020-04-10', 'unpaid'),
-(6, 6, 'test ', '2020-04-10', 'unpaid'),
-(7, 6, 'test ', '2020-04-10', 'unpaid'),
-(8, 6, 'test ', '2020-04-10', 'unpaid'),
-(9, 6, 'test ', '2020-04-10', 'unpaid'),
-(10, 6, 'test ', '2020-04-10', 'unpaid'),
-(11, 6, 'test ', '2020-04-10', 'unpaid'),
-(12, 6, 'test ', '2020-04-10', 'unpaid'),
-(1, 7, 'test 2', '2020-04-10', 'paid'),
-(2, 7, 'test 2', '2020-04-10', 'unpaid'),
-(3, 7, 'test 2', '2020-04-10', 'unpaid'),
-(4, 7, 'test 2', '2020-04-10', 'unpaid'),
-(5, 7, 'test 2', '2020-04-10', 'unpaid'),
-(6, 7, 'test 2', '2020-04-10', 'unpaid'),
-(1, 1, 'Jude Suares', '2022-05-19', 'unpaid'),
-(2, 1, 'Jude Suares', '2022-06-18', 'paid'),
-(3, 1, 'Jude Suares', '2022-07-18', 'unpaid'),
-(4, 1, 'Jude Suares', '2022-08-17', 'unpaid'),
-(5, 1, 'Jude Suares', '2022-09-16', 'unpaid'),
-(6, 1, 'Jude Suares', '2022-10-16', 'unpaid'),
-(7, 1, 'Jude Suares', '2022-11-15', 'unpaid'),
-(8, 1, 'Jude Suares', '2022-12-15', 'unpaid'),
-(9, 1, 'Jude Suares', '2023-01-14', 'unpaid'),
-(10, 1, 'Jude Suares', '2023-02-13', 'unpaid'),
-(11, 1, 'Jude Suares', '2023-03-15', 'unpaid'),
-(12, 1, 'Jude Suares', '2023-04-14', 'unpaid'),
-(1, 2, 'Princely Cezar', '2022-04-26', 'unpaid'),
-(2, 2, 'Princely Cezar', '2022-05-03', 'unpaid'),
-(3, 2, 'Princely Cezar', '2022-05-10', 'unpaid'),
-(4, 2, 'Princely Cezar', '2022-05-17', 'unpaid'),
-(5, 2, 'Princely Cezar', '2022-05-24', 'unpaid'),
-(6, 2, 'Princely Cezar', '2022-05-31', 'unpaid');
+
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `scheme`
+-- Table structure for table `type`
 --
 
 CREATE TABLE `scheme` (
-  `scheme_id` int(11) NOT NULL,
+  `type_id` int(11) NOT NULL,
   `name` varchar(20) NOT NULL,
   `amount` float NOT NULL,
   `r_asset` float NOT NULL,
@@ -254,10 +169,10 @@ CREATE TABLE `scheme` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `scheme`
+-- Dumping data for table `type`
 --
 
-INSERT INTO `scheme` (`scheme_id`, `name`, `amount`, `r_asset`, `no_installment`, `Install_amount`, `duration`, `date`) VALUES
+INSERT INTO `type` (`type_id`, `name`, `amount`, `r_asset`, `no_installment`, `Install_amount`, `duration`, `date`) VALUES
 (1, 'Home Loan', 300000, 10000, 12, 25000, 'month', '2022-04-19 '),
 (2, 'Phone Loan', 20000, 5000, 6, 3333.33, 'week', '2022-04-19 ');
 
@@ -292,8 +207,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `father_name`, `likee`, `pass`, `tim
 -- Indexes for table `customer`
 --
 ALTER TABLE `customer`
-  ADD PRIMARY KEY (`cus_id`),
-  ADD KEY `scheme` (`scheme_id`);
+  ADD PRIMARY KEY (`customer_id`),
+  ADD KEY `type` (`type_id`);
 
 --
 -- Indexes for table `installment`
@@ -305,21 +220,21 @@ ALTER TABLE `installment`
 -- Indexes for table `loan_info`
 --
 ALTER TABLE `loan_info`
-  ADD KEY `scheme_id` (`scheme_id`),
-  ADD KEY `cus_id` (`cus_id`),
-  ADD KEY `cus_id_2` (`cus_id`);
+  ADD KEY `type_id` (`type_id`),
+  ADD KEY `customer_id` (`customer_id`),
+  ADD KEY `customer_id_2` (`customer_id`);
 
 --
 -- Indexes for table `schedule`
 --
 ALTER TABLE `schedule`
-  ADD KEY `cus_id` (`cus_id`);
+  ADD KEY `customer_id` (`customer_id`);
 
 --
--- Indexes for table `scheme`
+-- Indexes for table `type`
 --
-ALTER TABLE `scheme`
-  ADD PRIMARY KEY (`scheme_id`),
+ALTER TABLE `type`
+  ADD PRIMARY KEY (`type_id`),
   ADD UNIQUE KEY `name` (`name`);
 
 --
@@ -336,7 +251,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `cus_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `installment`
@@ -348,13 +263,13 @@ ALTER TABLE `installment`
 -- AUTO_INCREMENT for table `loan_info`
 --
 ALTER TABLE `loan_info`
-  MODIFY `cus_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `scheme`
+-- AUTO_INCREMENT for table `type`
 --
-ALTER TABLE `scheme`
-  MODIFY `scheme_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `type`
+  MODIFY `type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`

@@ -27,11 +27,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <% if(print[0]){ %>
-    <title>Invoice Of <%=print[0].cus_name%></title>
+    <title>Invoice Of <%=print[0].customer_name %></title>
 </head>
 <body>
     <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand text-info" href="#">MicroVest</a>
+        <a class="navbar-brand text-info" href="#">BULIJJO CREDIT LIMITED</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -47,11 +47,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/view_scheme">
+                    <a class="nav-link" href="/view_type">
                         <i class="fa fa-envelope-o">
                             <!-- <span class="badge badge-danger">11</span> -->
                         </i>
-                        Schemes
+                        Types
                     </a>
                 </li>
                 <li class="nav-item">
@@ -63,7 +63,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/installment2/<%=print[0].cus_id%>">
+                    <a class="nav-link" href="/installment2/<%=print[0].customer_id%>">
                         <i class="fa fa-money">
                             <!-- <span class="badge badge-success">11</span> -->
                         </i>
@@ -74,7 +74,7 @@
             </ul>
             <ul class="navbar-nav ">
                 <li class="nav-item">
-                    <a id="print" class="nav-link" href="/generateReport_invoice/<%=print[0].cus_id%>">
+                    <a id="print" class="nav-link" href="/generateReport_invoice/<%=print[0].customer_id%>">
                         <i class="fa fa-print text-success ">
                             <span class="badge badge-danger "></span>
                         </i>
@@ -117,22 +117,22 @@
                             <li>
                                 <a href="#">
                                     <i class="glyphicon glyphicon-plus"></i>
-                                    ID: <%=print[0].cus_id%> </a>
+                                    ID: <%=print[0].customer_id%> </a>
                             </li>
                             <li>
-                                <a href="/profile/<%=print[0].cus_id%>">
+                                <a href="/profile/<%=print[0].customer_id%>">
                                     <i class="glyphicon glyphicon-user"></i>
-                                    Name: <%=print[0].cus_name%> </a>
+                                    Name: <%=print[0].customer_name %> </a>
                             </li>
                             <li class="active">
-                                <a href="/profile/<%=print[0].cus_id%>">
+                                <a href="/profile/<%=print[0].customer_id%>">
                                     <i class="glyphicon glyphicon-home"></i>
-                                    Address: <%=print[0].cus_address%> </a>
+                                    Address: <%=print[0].customer_address%> </a>
                             </li>
                             <li class="active">
-                                <a href="/profile/<%=print[0].cus_id%>">
+                                <a href="/profile/<%=print[0].customer_id%>">
                                     <i class="glyphicon glyphicon-phone"></i>
-                                    Contact: <%=print[0].cus_contact%> </a>
+                                    Contact: <%=print[0].customer_contact%> </a>
                             </li>
                         </ul>
     
@@ -152,18 +152,18 @@
                         <% fine = Math.round(fine + user.fine) %>
     
                         <% }) %>
-                        <!-- <%var scheme_amount = print[0].amount + print[0].remaining %> -->
-                        <% var remaining = Math.round(scheme_amount - mot) %>
+                        <!-- <%var type_amount = print[0].amount + print[0].remaining %> -->
+                        <% var remaining = Math.round(type_amount - mot) %>
                         <ul class="nav">
                             <li>
-                                <a href="/view_scheme">
+                                <a href="/view_type">
                                     <i class="glyphicon glyphicon-shopping-cart"></i>
-                                    Scheme : <%=print[0].scheme_name%> </a>
+                                    Type : <%=print[0].type_name%> </a>
                             </li>
                             <li>
                                 <a href="#">
                                     <i class="glyphicon glyphicon-usd"></i>
-                                    Amount Taken : <%=print[0].scheme_amount%> </a>
+                                    Amount Taken : <%=print[0].type_amount%> </a>
                             </li>
                             <li class="active">
                                 <a href="#">
@@ -171,13 +171,13 @@
                                     Total Paid: <%=mot%> </a>
                             </li>
                             <li class="active">
-                                <a href="/info/<%=print[0].scheme_id%>/<%=print[0].cus_id%>">
+                                <a href="/info/<%=print[0].type_id%>/<%=print[0].customer_id%>">
                                     <i class="glyphicon glyphicon-usd"></i>
                                     Remainings: <%=remaining%> </a>
                             </li>
     
                             <li>
-                                <a href="/installment2/<%=print[0].cus_id%>" target="_blank">
+                                <a href="/installment2/<%=print[0].customer_id%>" target="_blank">
                                     <i class="glyphicon glyphicon-euro"></i>
                                     Installment: <%=print[0].installment_amount%> </a>
                             </li>

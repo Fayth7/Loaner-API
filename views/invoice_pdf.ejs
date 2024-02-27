@@ -30,7 +30,7 @@
 
             <div class="profile-sidebar">
                 <center>
-                    <h2 class="head">MicroVest</h1>
+                    <h2 class="head">BULIJJO CREDIT LIMITED</h1>
                     <i class="para">In Interest We Trust</i>
                 </center>
 
@@ -45,19 +45,19 @@
                         <li>
 
                             <i class="glyphicon glyphicon-plus"></i>
-                            ID: <%=print[0].cus_id%> </a>
+                            ID: <%=print[0].customer_id%> </a>
                         </li>
                         <li>
                             <i class="glyphicon glyphicon-user"></i>
-                            Name: <%=print[0].cus_name%> </a>
+                            Name: <%=print[0].customer_name %> </a>
                         </li>
                         <li class="active">
                             <i class="glyphicon glyphicon-home"></i>
-                            Address: <%=print[0].cus_address%> </a>
+                            Address: <%=print[0].customer_address%> </a>
                         </li>
                         <li class="active">
                             <i class="glyphicon glyphicon-phone"></i>
-                            Contact: <%=print[0].cus_contact%> </a>
+                            Contact: <%=print[0].customer_contact%> </a>
                         </li>
 
                     </ul>
@@ -76,20 +76,20 @@
                     <% fine = fine + user.fine %>
                     
                     <% }) %>
-                    <% var remaining = print[0].scheme_amount - mot %>
+                    <% var remaining = print[0].type_amount - mot %>
                     
                     <ul class="nav">
                         <li>
-                            Scheme ID: <%=print[0].scheme_id%> 
+                            Type ID: <%=print[0].type_id%> 
                         </li>
                         <li class="active">
 
-                            Name: <%=print[0].scheme_name%> 
+                            Name: <%=print[0].type_name%> 
                         </li>
                         <li class="active">
 
                            
-                            Amount Taken: <%=print[0].scheme_amount%> 
+                            Amount Taken: <%=print[0].type_amount%> 
                         </li>
                         <li class="active">
                             

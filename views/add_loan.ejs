@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Loan Details</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+
+    <!-- Custom Styles -->
+    <style>
+      body {
+        background-color: #feeafa;
+        font-family: "Arial", sans-serif;
+      }
+
+      .container {
+        margin-top: 50px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        color: #008baa;
+        text-align: center;
+      }
+
+      label {
+        font-weight: bold;
+      }
+
+      button {
+        background-color: #008baa;
+        color: #fff;
+      }
+
+      /* Add your additional custom styles here */
+    </style>
+  </head>
+
+  <body>
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand text-info" href="#">BULIJJO CREDIT LIMITED</a>
+    </nav>
+    <!-- Navigation bar ends -->
+
+    <!-- Main content -->
+    <div class="container">
+      <h2>Add Loan Details</h2>
+      <form action="/add_loan" method="post">
+        <div class="form-group">
+          <label for="customer_id">Customer ID:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="customer_id"
+            name="customer_id"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="loan_amount">Loan Amount:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="loan_amount"
+            name="loan_amount"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="interest_rate">Interest Rate:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="interest_rate"
+            name="interest_rate"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="loan_duration">Loan Duration:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="loan_duration"
+            name="loan_duration"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="start_date">Start Date:</label>
+          <input
+            type="date"
+            class="form-control"
+            id="start_date"
+            name="start_date"
+            required
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <!-- Main content ends -->
+
+    <!-- Footer -->
+    <footer class="fixed-bottom text-center mt-4">
+      BULIJJO CREDIT LIMITED
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

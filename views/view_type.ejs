@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scheme Details</title>
+    <title>Loan Type</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -24,7 +24,7 @@
 <body>
     <!-- nav bar  -->
     <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand text-info" href="#">Itsourcecode Loan System</a>
+        <a class="navbar-brand text-info" href="#">BULIJJO CREDIT LIMITED</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -40,11 +40,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/view_scheme">
+                    <a class="nav-link" href="/view_type">
                         <i class="fa fa-envelope-o">
                             <!-- <span class="badge badge-danger">11</span> -->
                         </i>
-                        Schemes
+                        Loan Types
                     </a>
                 </li>
                 <li class="nav-item">
@@ -101,7 +101,7 @@
 
 <% print.forEach(function (user) { %>
     <tr>
-    <td><%= user.scheme_id %></td>
+    <td><%= user.type_id %></td>
     <td><%= user.name %></td>
     <td><%= user.amount %></td>
     <td><%= user.r_asset %></td>
@@ -110,11 +110,11 @@
     <td><%= user.duration %></td>
     <td><%= user.date %></td>
     <td>
-                <a href="/scheme_action/<%=user.scheme_id %>" class="btn btn-primary" <% var id  = user.scheme_id %></a>Edit</a>
+                <a href="/type_action/<%=user.type_id %>" class="btn btn-primary" <% var id  = user.type_id %></a>Edit</a>
 
     </td>
     <td>
-        <a href="/delete_scheme/<%=user.scheme_id %>" onclick="return confirm('Are You Sure?');" class="btn btn-danger">Delete</a>
+        <a href="/delete_type/<%=user.type_id %>" onclick="return confirm('Are You Sure?');" class="btn btn-danger">Delete</a>
     </td>
 
     <% }) %>

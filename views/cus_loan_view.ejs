@@ -24,7 +24,7 @@
     <!-- <nav class="navbar navb               
      <a class="nav-item nav-link text-white" href="/logout">Logout</a>
 
-        <a class="navbar-brand text-primary" href="#">Microvest</a>
+        <a class="navbar-brand text-primary" href="#">BULIJJO CREDIT LIMITED</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -43,10 +43,10 @@
         <table class="table table-dark">
             <thead>
                 <tr>
-                    <!-- <th scope="col">Scheme ID</th>
+                    <!-- <th scope="col">Type ID</th>
                     <th scope="col">Customer ID</th> -->
                     <!-- <th scope="col">Name</th>
-                    <th scope="col">Scheme</th> -->
+                    <th scope="col">Type</th> -->
                     <th scope="col">Taken Amount</th>
                     <th scope="col">Remaining Amount</th>
                     <th scope="col">Number of installment</th>
@@ -61,15 +61,15 @@
             
                 <tr>
                     
-                    <td><%= print[0].scheme_amount%></td>
+                    <td><%= print[0].type_amount%></td>
                     <td><%= print[0].remaining_amount%></td>
                     <td><%= print[0].installment_no%></td>
                     <td><%= print[0].installment_remaining%></td>
                     <td><%= print[0].installment_amount%></td>
                     <td><%= print[0].date%></td>
              <td>
-                 <a href="/installment2/<%=print[0].cus_id %>" class="btn btn-success">Pay</a>
-                <a href="/invoice/<%=print[0].cus_id %>" class="btn btn-info">Invoice</a>
+                 <a href="/installment2/<%=print[0].customer_id %>" class="btn btn-success">Pay</a>
+                <a href="/invoice/<%=print[0].customer_id %>" class="btn btn-info">Invoice</a>
 
             </td>
                

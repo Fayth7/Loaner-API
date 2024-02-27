@@ -55,8 +55,8 @@
                     <th scope="col">Address</th>
                     <th scope="col">Asset</th>
                     <th scope="col">Asset Price</th>
-                    <th scope="col">Scheme ID</th>
-                    <!-- <th scope="col">Scheme</th> -->
+                    <th scope="col">Type ID</th>
+                    <!-- <th scope="col">Type</th> -->
                     <th scope="col">Date</th>
                     <th scope="col">Action</th>
 
@@ -67,22 +67,22 @@
                 <% print.forEach(function (user) { %>
                 <tr>
 
-                    <td><%= user.cus_id %></td>
+                    <td><%= user.customer_id %></td>
                     <!-- <td><div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic"
                             src="http://localhost:3000/img/img_upload/<%=user.img%>" class="img-circle img-responsive"> </div> -->
                     <!-- </td> -->
-                    <td><%= user.cus_name %></td>
-                    <td><%= user.cus_contact %></td>
-                    <td><%= user.cus_address %></td>
+                    <td><%= user.customer_name  %></td>
+                    <td><%= user.customer_contact %></td>
+                    <td><%= user.customer_address %></td>
                     <td><%= user.cus_asset %></td>
                     <td><%= user.asset_price %></td>
-                    <td><%= user.scheme_id %></td>
-                    <!-- <td><%= user.scheme %></td> -->
+                    <td><%= user.type_id %></td>
+                    <!-- <td><%= user.type %></td> -->
                     <td><%= user.date %></td>
                     <td>
-                        <a href="/action/<%=user.cus_id %>" class="btn btn-primary" <% var id  = user.cus_id %></a>Edit</a>
-                        <a href="/info/<%=user.scheme_id%>/<%=user.cus_id%>" class="btn btn-info">Info</a>
-                        <a href="/profile/<%=user.cus_id%>" class="btn btn-success">Profile</a>
+                        <a href="/action/<%=user.customer_id %>" class="btn btn-primary" <% var id  = user.customer_id %></a>Edit</a>
+                        <a href="/info/<%=user.type_id%>/<%=user.customer_id%>" class="btn btn-info">Info</a>
+                        <a href="/profile/<%=user.customer_id%>" class="btn btn-success">Profile</a>
 
                     </td>
                     
