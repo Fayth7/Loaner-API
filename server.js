@@ -312,6 +312,11 @@ app.post('/print', auth, (req, res) => {
     });
 });
 
+// Route to render documents.ejs
+app.get('/documents', (req, res) => {
+  res.render('documents.ejs'); // Assuming your EJS file is named documents.ejs
+});
+
 app.get("/cus_view", auth, (req, res) => {
   if (req.query.search) {
     const searchKeyword = req.query.search;
@@ -454,32 +459,20 @@ app.get('/info/:sid/:cid', auth,(req,res)=>{
 
 // send data from database to the table of view_loan
 app.get("/view_loan", auth, (req, res) => {
-    //   res.render('cus_view.ejs')
     var obj3 = {};
-    var customer ={};
-    con.query('SELECT customer.customer_id, customer.customer_name, type.type_id, type.name, type.amount, type.no_installment, loan_info.remaining_amount, loan_info.installment_remaining,loan_info.installment_amount,loan_info.date FROM((type INNER JOIN customer ON type.type_id = customer.type_id) INNER JOIN loan_info ON customer.customer_id = loan_info.customer_id)', function (err, result) {
+    var customer = {};
 
+    con.query('SELECT customer.customer_id, customer.customer_name, type.type_id, type.name, type.amount, type.no_installment, loan_info.remaining_amount, loan_info.installment_remaining, loan_info.installment_amount, loan_info.date FROM ((type INNER JOIN customer ON type.type_id = customer.customer_registration) INNER JOIN loan_info ON customer.customer_id = loan_info.customer_id)', function (err, result) {
         if (err) {
             throw err;
         } else {
-       // console.log(result);
             obj3 = { print: result };
             res.render('view_loan.ejs', obj3);
         }
-        // con.query('select * from customer',function (error,results,fields) {
-        //     if(error) {
-        //         res.send(error);
-        //     }
-        //     else{
-        //         obj3 = { print1: result };
-        //         res.render('view_loan.ejs', obj3);
-        //     }
-            
-        // })
     });
-
-
 });
+
+
 
 //render installment module
 app.get('/installment', auth,function (req,res) {

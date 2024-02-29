@@ -1,12 +1,12 @@
-<!-- registration_complete.ejs -->
+<!-- documents.ejs -->
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registration Complete</title>
-    <link rel="stylesheet" href="/css/registration_complete.css" />
+    <title>Document Collection</title>
+    <link rel="stylesheet" href="/css/documents.css" />
     <!-- Add the link to your styles.css file here -->
   </head>
 
@@ -23,11 +23,21 @@
 
     <!-- Content section -->
     <div class="container">
-      <h1>Registration Complete</h1>
-      <p>Your registration has been successfully completed!</p>
-      <a href="/cus_view">View Customer</a>
-      <a href="/add_loan"><button>Insert Loan</button></a>
-      <a href="/documents"><button>Application Documents</button></a>
+      <h1>Document Collection</h1>
+
+      <!-- Buttons for different loan types -->
+      <a href="/upload_documents?loan_type=salary_loan"
+        ><button>Salary Loan</button></a
+      >
+      <a href="/upload_documents?loan_type=property_loan"
+        ><button>Property Loan</button></a
+      >
+      <a href="/upload_documents?loan_type=contract_loan"
+        ><button>Contract Loan</button></a
+      >
+      <a href="/upload_documents?loan_type=business_loan"
+        ><button>Business Loan</button></a
+      >
     </div>
 
     <!-- Add additional styling or scripts as needed -->

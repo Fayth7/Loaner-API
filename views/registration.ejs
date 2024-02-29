@@ -4,75 +4,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register a Customer</title>
+    <title>Loan Application Form</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Include the above in your HEAD tag -->
-    <link rel="stylesheet" href="/css/register.css">
-    <script src="/js/register.js"></script>
+    <link rel="stylesheet" href="/css/application.css">
+    <script src="/js/application.js"></script>
 </head>
 
 <body>
 
-    <form action="/cus_register" method="POST" enctype="multipart/form-data">
-        <h4 style="text-align: center; color:#17A2B8;" class="p-4">Customer Registration Form</h4>
+    <form action="/loan-applications" method="POST" enctype="multipart/form-data">
+        <h4 style="text-align: center; color:#17A2B8;" class="p-4">Loan Application Form</h4>
 
         <label>
-            <p class="label-txt">ENTER CUSTOMER NAME</p>
-            <input type="text" id="name" name="name" class="input">
+            <p class="label-txt">Borrower Name</p>
+            <input type="text" id="name" name="Name" class="input" required>
             <div class="line-box">
                 <div class="line"></div>
             </div>
         </label>
 
         <label>
-            <p class="label-txt">ENTER CUSTOMER CONTACT</p>
-            <input type="text" id="contact" name="contact" class="input">
+            <p class="label-txt">Loan Amount</p>
+            <input type="text" id="amount" name="Amount" class="input" required>
             <div class="line-box">
                 <div class="line"></div>
             </div>
         </label>
 
         <label>
-            <p class="label-txt">ENTER CUSTOMER FULL ADDRESS</p>
-            <input type="text" name="address" id="address" value="" class="input">
+            <p class="label-txt">Interest Rate</p>
+            <input type="text" name="Interest" id="interest" class="input" required>
             <div class="line-box">
                 <div class="line"></div>
             </div>
         </label>
 
         <label>
-            <p class="label-txt">ENTER CUSTOMER SECURITY</p>
-            <input type="text" name="asset" id="asset" class="input">
+            <p class="label-txt">Loan Duration (in months)</p>
+            <input type="text" name="duration" id="duration" class="input" required>
             <div class="line-box">
                 <div class="line"></div>
             </div>
         </label>
 
         <label>
-            <p class="label-txt">SECURITY PRICE</p>
-            <input type="text" name="p_asset" id="p_asset" class="input">
-            <div class="line-box">
-                <div class="line"></div>
-            </div>
-        </label>
-
-        <label>
-            <p class="label-txt">SELECT DATE</p>
-            <input type="date" name="date" class="input">
+            <p class="label-txt">Date</p>
+            <input type="date" name="date" class="input" required>
             <div class="line-box">
                 <div class="line"></div>
             </div>
         </label>
 
         <div class="form-group">
-            <h5 class="text-info" style="color: #C5E1A5;">Select Loan Type & Image</h6>
+            <h5 class="text-info" style="color: #C5E1A5;">Select Loan Type</h6>
                 <select name="type" class="form-control" id="type" required>
                     <option readonly value="">Select Loan-Type</option>
-                    <% print.forEach(function (user) { %>
-                        <option value="<%= user.type_id %>"><%= user.name %></option>
-                    <% }) %>
+                    <!-- Add options dynamically if needed -->
                 </select>
         </div>
 
